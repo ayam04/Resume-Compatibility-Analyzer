@@ -10,7 +10,7 @@ np_config.enable_numpy_behavior()
 model_url = "https://tfhub.dev/google/universal-sentence-encoder-large/5"
 embed = hub.load(model_url)
 
-API_KEY = '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'
+API_KEY = 'YOUR API KEY HERE'
 
 def parse_resume(file_path):
     text = ""
