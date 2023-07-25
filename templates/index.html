@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Compatibility Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-container input[type="file"],
+        .form-container input[type="text"],
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .result-container p {
+            margin: 10px 0;
+        }
+
+        .compatibility-score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 15px;
+        }
+
+        .go-back-link {
+            display: block;
+            margin-top: 20px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resume Compatibility Checker</h1>
+    <div class="form-container">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="resume">Upload Your Resume:</label>
+            <input type="file" id="resume" name="resume" accept=".txt, .pdf" required>
+            
+            <label for="job_profile">Select or Enter Job Profile:</label>
+            <select id="job_profile" name="job_profile" onchange="checkCustomJobProfile()" required>
+                <option value="" disabled selected>Select Job Profile</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Data Analyst">Data Analyst</option>
+                <!-- Add more job profiles as needed -->
+                <option value="custom">Custom (Enter Manually)</option>
+            </select>
+
+            <!-- New input field for custom job profile -->
+            <input type="text" id="custom_job_profile" name="custom_job_profile" style="display: none;" placeholder="Enter Job Profile Manually">
+
+            <input type="submit" value="Check Compatibility">
+        </form>
+    </div>
+
+    <script>
+        // JavaScript function to handle custom job profile input
+        function checkCustomJobProfile() {
+            const jobProfileSelect = document.getElementById("job_profile");
+            const customJobProfileInput = document.getElementById("custom_job_profile");
+
+            if (jobProfileSelect.value === "custom") {
+                customJobProfileInput.style.display = "block";
+                customJobProfileInput.setAttribute("required", "required");
+            } else {
+                customJobProfileInput.style.display = "none";
+                customJobProfileInput.removeAttribute("required");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compatibility Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .result-container h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .result-container p {
+            margin: 5px 0;
+        }
+
+        .compatibility-score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 15px 0;
+        }
+
+        .go-back-link {
+            display: block;
+            margin-top: 20px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .skills-list {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .skills-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compatibility Result</h1>
+    <div class="result-container">
+
+        <h2>Job Profile</h2>
+        <p><strong>Selected Job Profile:</strong> {{ job_profile }}</p>
+        {% if custom_job_profile %}
+        <p><strong>Custom Job Profile (Manually Entered):</strong> {{ custom_job_profile }}</p>
+        {% endif %}
+
+        <h2>Generated Job Description</h2>
+        <p>{{ job_description }}</p>
+
+        <h2>Compatibility Score</h2>
+        <p class="compatibility-score">{{ compatibility_score }}%</p>
+    </div>
+
+    <a class="go-back-link" href="/">Go Back to Resume Upload</a>
+</body>
+</html>
