@@ -16,7 +16,7 @@ Before running the application, ensure you have the following installed:
 Install the required packages using pip:
 
 ```bash
-pip install Flask pdfplumber tensorflow tensorflow-hub openai numpy
+pip install -r requirements.txt
 ```
 
 ## Usage
